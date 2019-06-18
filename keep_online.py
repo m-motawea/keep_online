@@ -23,7 +23,9 @@ while True:
     if not isLocked():
         if FLAG:
             print("not locked. moving mouse")
-            pyautogui.moveTo(screenWidth/step, screenHeight/step)
+            currentMouseX, currentMouseY = pyautogui.position()
+            pyautogui.moveTo(screenWidth/step, screenHeight/step, duration=1)
+            pyautogui.press('shift')
             time.sleep(period)
         else:
             time.sleep(period)
